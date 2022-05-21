@@ -38,7 +38,7 @@ install() {
     wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/scripts/run.sh -O /etc/dy_Proxy/run.sh
     chmod 777 /etc/dy_Proxy/run.sh
 
-    echo "如果没有报错则安装成功"
+    echo "如果没有报错则安装成功!"
     echo "正在启动..."
     screen -dmS dyProxy_linux64
     sleep 0.2s

@@ -11,8 +11,8 @@ else
 fi
 
 install() {
-    if [ -d "/root/dy_Proxy" ]; then
-        echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /root/dy_Proxy" && exit 1
+    if [ -d "/etc/dy_Proxy" ]; then
+        echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /etc/dy_Proxy" && exit 1
     fi
     if screen -list | grep -q "dyProxy"; then
         echo -e "检测到您已启动了dyProxy,请关闭后再安装" && exit 1
@@ -20,34 +20,34 @@ install() {
 
     $cmd update -y
     $cmd install curl wget screen -y
-    mkdir /root/dy_Proxy
+    mkdir /etc/dy_Proxy
 
     echo "请选择版本"
     echo "  1、v1.1.2"
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy
         ;;
     *)
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /root/dy_Proxy/dyProxy
+    chmod 777 /etc/dy_Proxy/dyProxy
 
-    wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/scripts/run.sh -O /root/dy_Proxy/run.sh
-    chmod 777 /root/dy_Proxy/run.sh
+    wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/scripts/run.sh -O /etc/dy_Proxy/run.sh
+    chmod 777 /etc/dy_Proxy/run.sh
     echo "如果没有报错则安装成功"
     echo "正在启动..."
     screen -dmS dyProxy
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /root/dy_Proxy"
+    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
     screen -r dyProxy -p 0 -X stuff $'\n'
     screen -r dyProxy -p 0 -X stuff "./run.sh"
     screen -r dyProxy -p 0 -X stuff $'\n'
     sleep 1s
-    cat /root/dy_Proxy/config.yml
-    echo "请输入 cat /root/dy_Proxy/config.yml 查看您的端口号与账号密码"
+    cat /etc/dy_Proxy/config.yml
+    echo "请输入 cat /etc/dy_Proxy/config.yml 查看您的端口号与账号密码"
     echo "已启动web后台 您可运行 screen -r dyProxy 查看程序输出"
 }
 
@@ -58,7 +58,7 @@ uninstall() {
     else
         if [ "$flag" = "yes" -o "$flag" = "ye" -o "$flag" = "y" ]; then
             screen -X -S dyProxy quit
-            rm -rf /root/dy_Proxy
+            rm -rf /etc/dy_Proxy
             echo "卸载dyProxy成功"
         fi
     fi
@@ -68,31 +68,31 @@ update() {
     if screen -list | grep -q "dyProxy"; then
         screen -X -S dyProxy quit
     fi
-    rm -rf /root/dy_Proxy/dyProxy
+    rm -rf /etc/dy_Proxy/dyProxy
     echo "请选择版本"
     echo "  1、v1.1.2"
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy
         ;;
     *)
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /root/dy_Proxy/dyProxy
+    chmod 777 /etc/dy_Proxy/dyProxy
 
 
     screen -dmS dyProxy
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /root/dy_Proxy"
+    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
     screen -r dyProxy -p 0 -X stuff $'\n'
     screen -r dyProxy -p 0 -X stuff "./run.sh"
     screen -r dyProxy -p 0 -X stuff $'\n'
 
     sleep 1s
-    cat /root/dy_Proxy/config.yml
-    echo "请输入 cat /root/dy_Proxy/config.yml 查看您的端口号与账号密码"
+    cat /etc/dy_Proxy/config.yml
+    echo "请输入 cat /etc/dy_Proxy/config.yml 查看您的端口号与账号密码"
     echo "您可运行 screen -r dyProxy 查看程序输出"
 }
 
@@ -102,7 +102,7 @@ start() {
     fi
     screen -dmS dyProxy
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /root/dy_Proxy"
+    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
     screen -r dyProxy -p 0 -X stuff $'\n'
     screen -r dyProxy -p 0 -X stuff "./run.sh"
     screen -r dyProxy -p 0 -X stuff $'\n'
@@ -117,7 +117,7 @@ restart() {
     fi
     screen -dmS dyProxy
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /root/dy_Proxy"
+    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
     screen -r dyProxy -p 0 -X stuff $'\n'
     screen -r dyProxy -p 0 -X stuff "./run.sh"
     screen -r dyProxy -p 0 -X stuff $'\n'

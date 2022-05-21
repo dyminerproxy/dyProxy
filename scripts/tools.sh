@@ -14,8 +14,8 @@ install() {
     if [ -d "/etc/dy_Proxy" ]; then
         echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /etc/dy_Proxy" && exit 1
     fi
-    if screen -list | grep -q "dyProxy"; then
-        echo -e "检测到您已启动了dyProxy,请关闭后再安装" && exit 1
+    if screen -list | grep -q "dyProxy_linux64"; then
+        echo -e "检测到您已启动了dyProxy_linux64,请关闭后再安装" && exit 1
     fi
 
     $cmd update -y
@@ -33,42 +33,43 @@ install() {
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /etc/dy_Proxy/dyProxy
+    chmod 777 /etc/dy_Proxy/dyProxy_linux64
 
     wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/scripts/run.sh -O /etc/dy_Proxy/run.sh
     chmod 777 /etc/dy_Proxy/run.sh
+
     echo "如果没有报错则安装成功"
     echo "正在启动..."
-    screen -dmS dyProxy
+    screen -dmS dyProxy_linux64
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
-    screen -r dyProxy -p 0 -X stuff $'\n'
-    screen -r dyProxy -p 0 -X stuff "./run.sh"
-    screen -r dyProxy -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "cd /etc/dy_Proxy"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "./run.sh"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
     sleep 1s
     cat /etc/dy_Proxy/config.yml
     echo "请输入 cat /etc/dy_Proxy/config.yml 查看您的端口号与账号密码"
-    echo "已启动web后台 您可运行 screen -r dyProxy 查看程序输出"
+    echo "已启动web后台 您可运行 screen -r dyProxy_linux64 查看程序输出"
 }
 
 uninstall() {
-    read -p "是否确认删除dyProxy[yes/no]：" flag
+    read -p "是否确认删除dyProxy_linux64[yes/no]：" flag
     if [ -z $flag ]; then
         echo "输入错误" && exit 1
     else
         if [ "$flag" = "yes" -o "$flag" = "ye" -o "$flag" = "y" ]; then
-            screen -X -S dyProxy quit
+            screen -X -S dyProxy_linux64 quit
             rm -rf /etc/dy_Proxy
-            echo "卸载dyProxy成功"
+            echo "卸载dyProxy_linux64成功"
         fi
     fi
 }
 
 update() {
-    if screen -list | grep -q "dyProxy"; then
-        screen -X -S dyProxy quit
+    if screen -list | grep -q "dyProxy_linux64"; then
+        screen -X -S dyProxy_linux64 quit
     fi
-    rm -rf /etc/dy_Proxy/dyProxy
+    rm -rf /etc/dy_Proxy/dyProxy_linux64
     echo "请选择版本"
     echo "  1、v1.1.2"
     read -p "$(echo -e "请输入[1]：")" choose
@@ -80,57 +81,57 @@ update() {
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /etc/dy_Proxy/dyProxy
+    chmod 777 /etc/dy_Proxy/dyProxy_linux64
 
 
-    screen -dmS dyProxy
+    screen -dmS dyProxy_linux64
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
-    screen -r dyProxy -p 0 -X stuff $'\n'
-    screen -r dyProxy -p 0 -X stuff "./run.sh"
-    screen -r dyProxy -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "cd /etc/dy_Proxy"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "./run.sh"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
 
     sleep 1s
     cat /etc/dy_Proxy/config.yml
     echo "请输入 cat /etc/dy_Proxy/config.yml 查看您的端口号与账号密码"
-    echo "您可运行 screen -r dyProxy 查看程序输出"
+    echo "您可运行 screen -r dyProxy_linux64 查看程序输出"
 }
 
 start() {
-    if screen -list | grep -q "dyProxy"; then
-        echo -e "dyProxy已启动,请勿重复启动" && exit 1
+    if screen -list | grep -q "dyProxy_linux64"; then
+        echo -e "dyProxy_linux64已启动,请勿重复启动" && exit 1
     fi
-    screen -dmS dyProxy
+    screen -dmS dyProxy_linux64
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
-    screen -r dyProxy -p 0 -X stuff $'\n'
-    screen -r dyProxy -p 0 -X stuff "./run.sh"
-    screen -r dyProxy -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "cd /etc/dy_Proxy"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "./run.sh"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
 
-    echo "dyProxy已启动"
-    echo "您可以使用指令screen -r dyProxy查看程序输出"
+    echo "dyProxy_linux64已启动"
+    echo "您可以使用指令screen -r dyProxy_linux64查看程序输出"
 }
 
 restart() {
-    if screen -list | grep -q "dyProxy"; then
-        screen -X -S dyProxy quit
+    if screen -list | grep -q "dyProxy_linux64"; then
+        screen -X -S dyProxy_linux64 quit
     fi
-    screen -dmS dyProxy
+    screen -dmS dyProxy_linux64
     sleep 0.2s
-    screen -r dyProxy -p 0 -X stuff "cd /etc/dy_Proxy"
-    screen -r dyProxy -p 0 -X stuff $'\n'
-    screen -r dyProxy -p 0 -X stuff "./run.sh"
-    screen -r dyProxy -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "cd /etc/dy_Proxy"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
+    screen -r dyProxy_linux64 -p 0 -X stuff "./run.sh"
+    screen -r dyProxy_linux64 -p 0 -X stuff $'\n'
 
-    echo "dyProxy 重新启动成功"
-    echo "您可运行 screen -r dyProxy 查看程序输出"
+    echo "dyProxy_linux64 重新启动成功"
+    echo "您可运行 screen -r dyProxy_linux64 查看程序输出"
 }
 
 stop() {
-    if screen -list | grep -q "dyProxy"; then
-        screen -X -S dyProxy quit
+    if screen -list | grep -q "dyProxy_linux64"; then
+        screen -X -S dyProxy_linux64 quit
     fi
-    echo "dyProxy 已停止"
+    echo "dyProxy_linux64 已停止"
 }
 
 change_limit(){
@@ -167,8 +168,8 @@ check_limit(){
 }
 
 echo "======================================================="
-echo "dyminerproxy的dyProxy 一键工具"
-echo "  1、安装(默认安装到/root/dyProxy)"
+echo "dyminerproxy的dyProxy_linux64 一键工具"
+echo "  1、安装(默认安装到/etc/dy_Proxy)"
 echo "  2、卸载"
 echo "  3、更新"
 echo "  4、启动"

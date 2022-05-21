@@ -15,7 +15,7 @@ bash <(curl -s -L https://raw.githubusercontent.com/dyminerproxy/dyproxy/master/
 
 ### 查看运行情况
 ```bash
-screen -r dyProxy
+screen -r dyProxy_linux64
 ```
 ### 退出查看运行情况 键盘键入
 ```
@@ -46,7 +46,7 @@ tail -f nohup.out
 ### 后台运行时关闭
 
 ```bash
-killall minerProxy
+killall dyProxy_linux64
 ```
 ### 后台运行时查看
 ```bash

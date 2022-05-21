@@ -27,7 +27,7 @@ install() {
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy_linux64
         ;;
     *)
         echo "请输入正确的数字"
@@ -75,7 +75,7 @@ update() {
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /etc/dy_Proxy/dyProxy_linux64
         ;;
     *)
         echo "请输入正确的数字"

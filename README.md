@@ -29,7 +29,7 @@ mkdir dy_proxy
 cd dy_proxy
 
 # x86服务器
-wget https://raw.githubusercontent.com/dyminerproxy/dyproxy/master/release/v1.0.1/dyProxy_linux64
+wget https://raw.githubusercontent.com/dyminerproxy/dyproxy/master/release/v1.1.2/dyProxy_linux64
 chmod 777 dyProxy_linux64
 ./dyProxy_linux64
 

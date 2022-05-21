@@ -23,11 +23,11 @@ install() {
     mkdir /root/dy_Proxy
 
     echo "请选择版本"
-    echo "  1、v1.0.1"
+    echo "  1、v1.1.2"
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.0.1/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
         ;;
     *)
         echo "请输入正确的数字"
@@ -70,11 +70,11 @@ update() {
     fi
     rm -rf /root/dy_Proxy/dyProxy
     echo "请选择版本"
-    echo "  1、v1.0.1"
+    echo "  1、v1.1.2"
     read -p "$(echo -e "请输入[1]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.0.1/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
+        wget https://raw.githubusercontent.com/dyminerproxy/dyProxy/master/release/v1.1.2/dyProxy_linux64 -O /root/dy_Proxy/dyProxy
         ;;
     *)
         echo "请输入正确的数字"

@@ -64,6 +64,6 @@ tail -f nohup.out
 
 <a href="https://jq.qq.com/?_wv=1027&k=ZEjK6SjD">QQ交流群  大爷中转（点击加入）</a></br>
 
-<img src="https://raw.githubusercontent.com/dyminerproxy/dyProxy/tree/main/img/img_2.png" width="250"></img>
+<img src="https://raw.githubusercontent.com/dyminerproxy/dyProxy/blob/main/img/img_2.png" width="250"></img>
 
 

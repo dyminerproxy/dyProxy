@@ -1,5 +1,5 @@
 # dyProxy
-![img_7.png](img/img_7.png)
+![img_1.png](img/img_1.png)
 
 
 ## Windows 直接下载运行 <a href="https://github.com/dyminerproxy/dyproxy/releases">Release</a></br>
@@ -56,14 +56,14 @@ tail -f nohup.out
 
 ```bash
 开发者费用
-本软件如果您开启了抽水则为 0.3%的开发者费用,
+本软件如果您开启了抽水则为 0.3% 的开发者费用,
 如果您不开启抽水,则没有开发者费用,可以自行抓包查看
 
 
 ```
 
+<a href="https://jq.qq.com/?_wv=1027&k=ZEjK6SjD">QQ交流群  大爷中转（点击加入）</a></br>
 
+<img src="https://raw.githubusercontent.com/dyminerproxy/dyProxy/tree/main/img/img_2.png" width="250"></img>
 
-
-![img_1.png](img/img_1.png)
 
